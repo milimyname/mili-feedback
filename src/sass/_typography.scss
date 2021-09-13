@@ -1,0 +1,75 @@
+@mixin heading {
+  font-weight: 700;
+  color: $color-white;
+}
+
+.heading-1 {
+  font-size: 2.4rem;
+  color: $color-dark-blue-2;
+}
+
+.heading-white-1 {
+  @include heading;
+  font-size: 2.4rem;
+}
+
+.heading-2 {
+  @include heading;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.heading-3 {
+  font-size: 1.8rem;
+  color: $color-dark-blue-1;
+}
+
+.heading-4 {
+  font-size: 1.4rem;
+  color: $color-dark-blue-1;
+}
+
+.heading-5 {
+  font-size: 1.7rem;
+  color: $color-dark-blue-1;
+  text-align: center;
+}
+
+.paragraph-header {
+  font-size: 1.5rem;
+  color: rgba($color-white, 0.7);
+}
+
+.paragraph-feedback {
+  color: $color-dark-gray;
+  font-size: 1.6rem;
+}
+
+.paragraph-empty {
+  color: $color-dark-gray;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.paragraph-username,
+.paragraph-form {
+  font-size: 1.4rem;
+  color: $color-dark-gray;
+}
+
+.paragraph-comment,
+.paragraph-left {
+  font-size: 1.5rem;
+  color: $color-dark-gray;
+}
+
+.label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $color-dark-blue-1;
+}
+
+.paragraph-empty {
+  font-size: 1.4rem;
+  color: $color-red;
+}

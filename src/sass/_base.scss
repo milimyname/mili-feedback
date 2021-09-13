@@ -1,0 +1,64 @@
+// Typography
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
+
+// Colors
+
+$color-lila: rgb(173, 31, 234);
+$color-blue: rgb(70, 97, 230);
+$color-dark-blue-1: rgb(55, 63, 104); //3A
+$color-white: #fff;
+$color-light-gray: rgb(242, 244, 255);
+$color-gray-white: rgb(247, 248, 253);
+$color-dark-blue-2: rgb(58, 67, 116);
+$color-dark-gray: #647196; //647196
+$color-dark-gray-1: rgba($color-dark-gray, 0.1);
+$color-orange: rgb(244, 159, 133);
+$color-red: #d73737;
+$color-light-blue: rgb(98, 188, 250);
+$color-roadmap-line: #8c92b3;
+
+// Css parameters
+
+$border-radius-1: 1rem;
+$border-radius-2: 0.5rem;
+$padding-1: 2.6rem 3.1rem;
+
+$width-index-bg: 111rem;
+$width-index-md: 70rem;
+$width-index-sm: 32.7rem;
+
+$width-new-bg: 54rem;
+$width-new-sm: 50rem;
+
+// Media breakpoints
+
+$bp-desktop: 93.75em; // 1500px
+$bp-tablet: 48em; // 768px
+$bp-phone: 26.25em; // 420px
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @media only screen and (min-width: $bp-desktop) {
+    font-size: 100%; // 16px
+  }
+  @media only screen and (max-width: $bp-tablet) {
+    font-size: 50%; // 8px
+  }
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $color-dark-blue-2;
+}

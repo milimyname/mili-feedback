@@ -1,0 +1,607 @@
+// Mixins
+@mixin backColor {
+  background-color: $color-white;
+  border-radius: $border-radius-1;
+}
+
+@mixin btnText {
+  // btn text, the mixin added to btn reply with small changes
+  &,
+  &:link,
+  &:visited {
+    font-size: 1.3rem;
+    color: $color-blue;
+    text-decoration-color: $color-blue;
+
+    @media only screen and (max-width: $bp-phone) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &:hover {
+    color: rgba($color-blue, 0.8);
+    text-decoration-color: rgba($color-blue, 0.8);
+  }
+}
+
+@mixin upvote {
+  &--hover {
+    &:hover {
+      background-color: rgba($color-blue, 0.2);
+    }
+  }
+
+  &--active {
+    background-color: $color-blue;
+    color: $color-white;
+
+    & > svg {
+      filter: brightness(3.5);
+    }
+  }
+}
+
+// Roadmap
+
+.roadmap {
+  @include backColor;
+  padding: 2.4rem;
+
+  display: grid;
+  row-gap: 2rem;
+
+  @media only screen and (max-width: $bp-phone) {
+    display: none;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-phone) {
+      & > h3 {
+        font-size: 2.3rem;
+      }
+    }
+  }
+
+  &__projects-status {
+    display: grid;
+    row-gap: 0.7rem;
+
+    @media only screen and (max-width: $bp-phone) {
+      row-gap: 1rem;
+    }
+  }
+
+  &__status {
+    display: grid;
+    grid-template-columns: 1rem 1fr 1rem;
+    align-items: center;
+    column-gap: 1rem;
+    font-size: 1.6rem;
+    color: $color-dark-gray;
+    @media only screen and (max-width: $bp-phone) {
+      column-gap: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__bullet {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 10rem;
+
+    @media only screen and (max-width: $bp-phone) {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &--orange {
+      background-color: $color-orange;
+    }
+    &--lila {
+      background-color: $color-lila;
+    }
+    &--blue {
+      background-color: $color-light-blue;
+    }
+  }
+  &__number {
+    font-weight: 600;
+  }
+}
+
+.map {
+  background-color: $color-white;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  display: grid;
+  row-gap: 1.6rem;
+  padding: 3.2rem;
+
+  @media only screen and (max-width: $bp-tablet) {
+    padding: 2rem;
+  }
+
+  &--orange {
+    border-top: 0.6rem solid $color-orange;
+    @media only screen and (max-width: $bp-phone) {
+      border-top: 0.8rem solid $color-orange;
+    }
+  }
+  &--lila {
+    border-top: 0.6rem solid $color-lila;
+    @media only screen and (max-width: $bp-phone) {
+      border-top: 0.8rem solid $color-lila;
+    }
+  }
+  &--blue {
+    border-top: 0.6rem solid $color-light-blue;
+    @media only screen and (max-width: $bp-phone) {
+      border-top: 0.8rem solid $color-light-blue;
+    }
+  }
+
+  &__text > h3:hover {
+    color: $color-blue;
+  }
+
+  &__upvote-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__upvote {
+    justify-self: start;
+    padding: 1.2rem;
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: repeat(2, min-content);
+    background-color: #f7f8fd;
+    border-radius: $border-radius-1;
+
+    & > span {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    & > svg {
+      align-self: center;
+      margin-bottom: 0.2rem;
+    }
+
+    @include upvote;
+  }
+
+  &__btn {
+    justify-self: start;
+  }
+}
+
+// Dropdown menu
+
+.dropdown {
+  list-style: none;
+  @include backColor;
+  box-shadow: 0 1rem 4rem rgba(#000, 0.15);
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  opacity: 0.9;
+  z-index: 10;
+
+  &__item {
+    font-size: 1.6rem;
+    color: $color-dark-gray;
+    padding: 1.2rem 2.4rem;
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    align-items: center;
+    backface-visibility: hidden;
+    @media only screen and (max-width: $bp-phone) {
+      grid-template-columns: 1fr 0.5fr;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba($color-dark-blue-2, 0.15);
+    }
+
+    &--active {
+      color: $color-lila;
+    }
+
+    & > svg {
+      width: 1.3rem;
+      height: 1.1rem;
+      justify-self: end;
+    }
+
+    &:hover {
+      color: $color-lila;
+    }
+  }
+
+  // Dropdown menu in a form
+  &__form {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    opacity: 0.9;
+    z-index: 10;
+
+    & > li {
+      grid-template-columns: 1fr 10fr;
+    }
+  }
+}
+
+// Dropdwon Functionality in the form
+.sidebar__option:active + .dropdown {
+  visibility: visible;
+  top: 120%;
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.form__option--active {
+  visibility: visible;
+  top: 115%;
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+// Extra styles
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+// Buttons
+
+.btn {
+  display: flex;
+  align-items: center;
+
+  &,
+  &:link,
+  &:visited {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $color-white;
+    text-decoration: none;
+    padding: 1.2rem 2.4rem;
+    border-radius: $border-radius-1;
+
+    @media only screen and (max-width: $bp-tablet) {
+      padding: 1.2rem 1.4rem;
+    }
+
+    @media only screen and (max-width: $bp-phone) {
+      padding: 1rem 2rem;
+      font-size: 1.8rem;
+    }
+  }
+  & > svg {
+    margin-right: 0.3rem;
+  }
+
+  &--feedback,
+  &--post {
+    border: none;
+    background-color: $color-lila;
+
+    &:hover {
+      filter: contrast(80%);
+    }
+  }
+
+  &--edit {
+    background-color: $color-blue;
+    &:hover {
+      filter: brightness(170%);
+    }
+  }
+  &--cancel,
+  &--del {
+    border: none;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &--cancel {
+    background-color: $color-dark-blue-1;
+  }
+  &--del {
+    background-color: $color-red;
+  }
+}
+
+.btn-plain {
+  &,
+  &:link,
+  &:visited {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-blue;
+    text-decoration: none;
+    padding: 0.6rem 2.6rem;
+    border-radius: $border-radius-1;
+  }
+
+  &--feedback {
+    background-color: $color-gray-white;
+  }
+}
+
+.btn-back {
+  &,
+  &:link,
+  &:visited {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $color-dark-gray;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: $color-dark-gray;
+  }
+  &--white {
+    &,
+    &:link,
+    &:visited {
+      color: $color-white;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: $color-white;
+    }
+  }
+}
+
+.btn-text {
+  @include btnText;
+}
+
+.btn-reply {
+  @include btnText;
+
+  &,
+  &:link,
+  &:visited {
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Message
+
+.message-empty {
+  @include backColor;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  row-gap: 5.3rem;
+  padding: 11vw 21vw;
+
+  @media only screen and (max-width: $bp-phone) {
+    padding: 11vw;
+  }
+
+  &__text {
+    display: grid;
+    justify-items: center;
+    row-gap: 1.6rem;
+  }
+
+  &__paragraph {
+    color: $color-dark-gray;
+  }
+}
+
+// Tasks
+
+.feedback {
+  @include backColor;
+  padding: $padding-1;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  display: grid;
+  align-items: start;
+  grid-template-columns: 4rem 1fr 4.4rem;
+  column-gap: 4rem;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__upvote-box {
+    padding: 0.8rem 0.9rem;
+    display: grid;
+    row-gap: 0.6rem;
+    grid-template-rows: 1rem 2rem;
+    justify-items: center;
+    background-color: $color-gray-white;
+    border-radius: $border-radius-1;
+
+    & > svg {
+      align-self: end;
+    }
+
+    & > span {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    @include upvote;
+  }
+
+  &__comments-box {
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: 1rem;
+
+    & > span {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.comment {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 4rem 1fr;
+  column-gap: 3.2rem;
+  padding-top: 3.2rem;
+
+  &__details {
+    display: grid;
+    row-gap: 1.6rem;
+  }
+
+  &__name-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__img-box {
+    position: relative;
+  }
+
+  &__img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10rem;
+  }
+
+  &-first {
+    padding-bottom: 6.2rem;
+    border-bottom: 1px solid $color-dark-gray-1;
+  }
+
+  &-reply {
+    padding-left: 4.5rem;
+  }
+  &__tag-username {
+    font-weight: 700;
+    color: $color-lila;
+  }
+}
+
+// Line
+
+.line {
+  height: 13rem;
+  width: 1px;
+  background-color: $color-dark-gray-1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Textarea
+
+@mixin textIn {
+  color: $color-dark-blue-2;
+  font-size: 1.5rem;
+  font-family: inherit;
+  background-color: $color-gray-white;
+  border-radius: $border-radius-2;
+  outline: none;
+  border: none;
+  padding: 1.6rem 2.4rem;
+}
+
+.textarea {
+  @include textIn;
+  resize: none;
+  border: 1px solid transparent;
+  &::placeholder {
+    color: $color-dark-gray-1;
+  }
+
+  &:focus:invalid {
+    border: 1px solid $color-red;
+  }
+
+  &:focus {
+    border: 1px solid $color-blue;
+  }
+}
+
+// Textarea functionality
+.textarea:focus:invalid + .form__paragraph {
+  opacity: 1;
+  top: 100%;
+}
+
+// Form
+
+.form {
+  display: grid;
+  row-gap: 2.4rem;
+  &__group {
+    display: grid;
+    row-gap: 1.6rem;
+    position: relative;
+
+    &-textarea {
+      grid-template-rows: min-content 8vw;
+
+      @media only screen and (max-width: $bp-phone) {
+        grid-template-rows: min-content 29vw;
+      }
+    }
+  }
+
+  &__input {
+    @include textIn;
+    border: 1px solid transparent;
+
+    &:focus {
+      border: 1px solid $color-blue;
+
+      &:invalid {
+        border: 1px solid $color-red;
+      }
+    }
+  }
+
+  &__option {
+    @include textIn;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__paragraph {
+    position: absolute;
+    top: 12rem;
+    justify-self: start;
+    opacity: 0;
+    transition: all 0.2s;
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

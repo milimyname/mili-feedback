@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+  <title>Frontend Mentor | Product feedback app</title>
+</head>
+
+<body class="container-new">
+  <header class="header-new mb-bg">
+      <div class="header-new__btn-back-box">
+        <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L2 5l4-4" stroke="#4661E6" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+        <a href="./index.html" class="btn-back"> Go Back</a>
+      </div>
+  </header>
+  <main class="main-new">
+    <div class="main-new__plus">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="28" cy="28" r="28" fill="url(#paint0_radial)"/>
+        <path d="M30.3425 36V30.1657H36.0295V25.8637H30.3425V20H25.7459V25.8637H20V30.1657H25.7459V36H30.3425Z" fill="white"/>
+        <defs>
+        <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(58.184 -5.81647) rotate(129.411) scale(93.4169)">
+        <stop stop-color="#E84D70"/>
+        <stop offset="0.530886" stop-color="#A337F6"/>
+        <stop offset="1" stop-color="#28A7ED"/>
+        </radialGradient>
+        </defs>
+        </svg>
+    </div>
+    <h1 class="heading-1 mt-md mb-md-4">Create New Feedback</h1>
+    <form class="form">
+      <div class="form__group">
+        <div class="form__text">
+          <label for="title" class="label">Feedback Title</label>
+          <p class="paragraph-form">Add a short, descriptive headline</p>
+        </div>
+        <input type="text" name="title" id="title" class="form__input" required>
+      </div>
+      <div class="form__group">
+        <div class="form__text">
+          <label for="category" class="label">Category</label>
+          <p class="paragraph-form">  Choose a category for your feedback</p>
+        </div>
+        <div class="form__options">
+          <div class="form__option">
+            <p class="form__feature">Feature</p>
+            <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg" class="form__icon-down"><path d="M1 1l4 4 4-4" stroke="#4661E6" stroke-width="2" fill="none" fill-rule="evenodd" /></svg>
+            <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg" class="form__icon-up display-none"><path d="M1 6l4-4 4 4" stroke="#4661E6" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+          </div>
+          <ul class="dropdown dropdown__form hidden">
+            <li class="dropdown__item dropdown__item--active ">Feature <svg xmlns="http://www.w3.org/2000/svg" class="form__icon-check"><path fill="none" stroke="#AD1FEA" stroke-width="2" d="M1 5.233L4.522 9 12 1"/></svg></li>
+            <li class="dropdown__item">UI</li>
+            <li class="dropdown__item">UX</li>
+            <li class="dropdown__item">Enhancement</li>
+            <li class="dropdown__item">Bug</li>
+          </ul>
+        </div>
+      </div>
+      <div class="form__group form__group-textarea">
+        <div class="form__text">
+          <label for="detail" class="label">  Feedback Detail </label>
+          <p class="paragraph-form">Include any specific comments on what should be improved, added, etc.</p>     
+        </div>
+        <textarea name="detail" id="detail" class="textarea form__textarea" required></textarea>
+        <p class="form__paragraph paragraph-empty">Can't be empty</p>
+      </div>
+      <div class="form__btn-box">
+        <button class="btn btn--cancel mr-sm">Cancel</button>
+        <button class="btn btn--feedback"> <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><text transform="translate(-24 -20)" fill="#F2F4FE" fill-rule="evenodd" font-family="Jost-Bold, Jost" font-size="14" font-weight="bold"><tspan x="24" y="27.5">+</tspan></text></svg> Add Feedback</button>
+      </div>
+    </form>
+
+  </main>
+  
+
+  
+</body>
+<html>

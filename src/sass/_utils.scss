@@ -1,0 +1,84 @@
+// Margins
+.mt-sm {
+  margin-top: 1.4rem;
+}
+.mt-md {
+  margin-top: 2.4rem;
+}
+.mt-md-3 {
+  margin-top: 3.2rem;
+}
+.mb-sm {
+  margin-bottom: 1.2rem;
+  @media only screen and (max-width: $bp-phone) {
+    margin-bottom: 2.4rem;
+  }
+}
+.mb-md {
+  margin-bottom: 2.4rem;
+}
+.mb-md-4 {
+  margin-bottom: 4rem;
+}
+.mb-bg {
+  margin-bottom: 6.4rem;
+}
+
+.mr-sm {
+  margin-right: 1.6rem;
+}
+.mr-au {
+  margin-right: auto;
+}
+
+// Column gap sm
+
+.column-gap-sm {
+  column-gap: 0.5rem;
+}
+
+// Opacity
+
+.opacity-4 {
+  opacity: 0.4;
+}
+
+// Border bottom
+
+.border-planned {
+  border-bottom: 4px solid $color-orange;
+}
+.border-in-progress {
+  border-bottom: 4px solid $color-lila;
+}
+.border-live {
+  border-bottom: 4px solid $color-light-blue;
+}
+
+// Display
+
+.display-none {
+  display: none;
+}
+
+@media only screen and (min-width: $bp-tablet) {
+  .display-block {
+    display: block;
+  }
+}
+
+// Roadmap Box
+
+@media only screen and (max-width: $bp-phone) {
+  // Position Absolute
+  .position-absolute {
+    position: absolute;
+  }
+
+  .translateX-R {
+    transform: translateX(-110%);
+  }
+  .translateX-L {
+    transform: translateX(110%);
+  }
+}
